@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch ./backend/server.js"
+    "dev": "cross-env NODE_ENV=development node --watch ./backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "cross-env NODE_ENV=production node backend/server.js"
   },
   "type": "module",
   "keywords": [],
@@ -15,5 +17,8 @@
     "express": "^4.21.2",
     "mongodb": "^6.12.0",
     "mongoose": "^8.8.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
